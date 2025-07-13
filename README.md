@@ -85,15 +85,103 @@ pip install git+https://github.com/WhiteSymmetry/oresmej.git
 ## Kullanım (Türkçe) / Usage (English)
 
 ```python
-import oresmej as oj 
+import oresmej as oj
+import numpy as np
+import jax
+import jax.numpy as jnp
+import time
+from oresmej import *
+import matplotlib.pyplot as plt
 
-
-
+# Simple usage example
+plt.figure(figsize=(10, 5))
+plt.plot(oj.harmonic_numbers_jax(500))
+plt.title("First 5000000 Harmonic Numbers")
+plt.xlabel("n")
+plt.ylabel("H(n)")
+plt.show()
 ```
 
 ```python
 import oresmej
 oresmej.__version__
+```
+
+```python
+import importlib
+import inspect
+import oresmej as oj  # Varsa import hatasını yakalamak için
+import jax.numpy as jnp
+
+def diagnose_module(module_name):
+    try:
+        # Modülü yükle
+        module = importlib.import_module(module_name)
+        
+        print(f"\n{' Modül Tanılama Raporu ':=^80}")
+        print(f"Modül adı: {module_name}")
+        print(f"Modül dosya yolu: {inspect.getfile(module)}")
+        
+        # Modülün tüm özelliklerini listele
+        print("\nModülde bulunan özellikler:")
+        members = inspect.getmembers(module)
+        public_members = [name for name, _ in members if not name.startswith('_')]
+        print(public_members)
+        
+        # Özel olarak kontrol edilecek fonksiyonlar
+        required_functions = [
+            'oresme_sequence',
+            'harmonic_numbers',
+            'harmonic_number',
+            'harmonic_number_jax',
+            'harmonic_numbers_jax',
+            'harmonic_generator_jax',
+            'harmonic_number_approx'
+        ]
+        
+        print("\nEksik olan fonksiyonlar:")
+        missing = [fn for fn in required_functions if not hasattr(module, fn)]
+        print(missing if missing else "Tüm gerekli fonksiyonlar mevcut")
+        
+        # __all__ değişkenini kontrol et
+        print("\n__all__ değişkeni:")
+        if hasattr(module, '__all__'):
+            print(module.__all__)
+        else:
+            print("__all__ tanımlı değil (tüm public fonksiyonlar içe aktarılır)")
+            
+    except ImportError as e:
+        print(f"\nHATA: Modül yüklenemedi - {e}")
+    except Exception as e:
+        print(f"\nBeklenmeyen hata: {e}")
+
+# Tanılama çalıştır
+diagnose_module('oresmej')
+
+# Alternatif olarak doğrudan kontrol
+print("\nDoğrudan fonksiyon varlığı kontrolü:")
+try:
+    print("harmonic_numbers_jax mevcut mu?", hasattr(oj, 'harmonic_numbers_jax'))
+    if hasattr(oj, 'harmonic_numbers_jax'):
+        print("Fonksiyon imzası:", inspect.signature(oj.harmonic_numbers_jax))
+    else:
+        print("Eksik fonksiyon: harmonic_numbers_jax")
+except Exception as e:
+    print("Kontrol sırasında hata:", e)
+```
+
+```python
+# 1. Alternatif içe aktarma yöntemi
+from oresmej import harmonic_numbers_jax  # Doğrudan import deneyin
+import oresmej as oj
+import jax.numpy as jnp
+
+# 2. Modülü yeniden yükleme
+import importlib
+importlib.reload(oj)
+
+# 3. Fonksiyonun alternatif isimle var olup olmadığını kontrol
+print("Alternatif fonksiyon isimleri:", [name for name in dir(oj) if 'harmonic' in name.lower()])
 ```
 ---
 
