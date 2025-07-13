@@ -6,6 +6,9 @@
 
 [![figshare DOI](https://img.shields.io/badge/DOI-10.6084/m9.figshare.29554532-blue)](https://doi.org/10.6084/m9.figshare.29554532)
 
+[![figshare DOI](https://img.shields.io/badge/DOI-10.13140/RG.2.2.30518.41284-blue)](https://doi.org/10.13140/RG.2.2.30518.41284)
+
+
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/version.svg)](https://anaconda.org/bilgi/oresmej)
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresmej)
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/platforms.svg)](https://anaconda.org/bilgi/oresmej)
@@ -214,7 +217,9 @@ If this library was useful to you in your research, please cite us. Following th
 ```
 Keçeci, M. (2025). Dynamic vs Static Number Sequences: The Case of Keçeci and Oresme Numbers. Open Science Articles (OSAs), Zenodo. https://doi.org/10.5281/zenodo.15833351
 
-Keçeci, M. (2025). oresmej. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29554532
+Keçeci, M. (2025). oresmej [Data set]. ResearchGate. https://doi.org/10.13140/RG.2.2.30518.41284
+
+Keçeci, M. (2025). oresmej [Data set]. figshare. https://doi.org/10.6084/m9.figshare.29554532
 
 Keçeci, M. (2025). oresmej [Data set]. WorkflowHub. https://doi.org/10.48546/WORKFLOWHUB.DATAFILE.19.1
 
@@ -226,7 +231,9 @@ Keçeci, M. (2025). oresmej. Open Science Articles (OSAs), Zenodo. https://doi.o
 ```
 Keçeci, Mehmet. Dynamic vs Static Number Sequences: The Case of Keçeci and Oresme Numbers. Open Science Articles (OSAs), Zenodo, 2025. https://doi.org/10.5281/zenodo.15833351
 
-Keçeci, Mehmet (2025). oresmej. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29554532
+Keçeci, Mehmet. oresmej [Data set]. ResearchGate, 2025. https://doi.org/10.13140/RG.2.2.30518.41284
+
+Keçeci, Mehmet (2025). oresmej [Data set]. figshare, 2025. https://doi.org/10.6084/m9.figshare.29554532
 
 Keçeci, Mehmet. oresmej [Data set]. WorkflowHub, 2025. https://doi.org/10.48546/WORKFLOWHUB.DATAFILE.19.1
 
