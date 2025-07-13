@@ -22,7 +22,7 @@ identifiers:
   - type: doi
     value: 10.6084/m9.figshare.29554532
   - type: doi
-    value: 
+    value: 10.13140/RG.2.2.30518.41284
 repository-code: 'https://github.com/WhiteSymmetry/oresmej'
 url: 'https://github.com/WhiteSymmetry/oresmej'
 repository: 'https://anaconda.org/bilgi/oresmej'
