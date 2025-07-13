@@ -20,7 +20,7 @@ identifiers:
   - type: doi
     value: 10.48546/WORKFLOWHUB.DATAFILE.19.1
   - type: doi
-    value: 
+    value: 10.6084/m9.figshare.29554532
   - type: doi
     value: 
 repository-code: 'https://github.com/WhiteSymmetry/oresmej'
