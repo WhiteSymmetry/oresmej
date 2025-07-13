@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15874178.svg)](https://doi.org/10.5281/zenodo.15874178)
 
-[![WorkflowHub DOI](https://img.shields.io/badge/DOI--blue)](https://doi.org/)
+[![WorkflowHub DOI](https://img.shields.io/badge/DOI-10.48546/WORKFLOWHUB.DATAFILE.19.1-blue)](https://doi.org/10.48546/WORKFLOWHUB.DATAFILE.19.1)
 
 [![figshare DOI](https://img.shields.io/badge/DOI-1-blue)](https://doi.org/)
 
@@ -214,7 +214,9 @@ If this library was useful to you in your research, please cite us. Following th
 ```
 Keçeci, M. (2025). Dynamic vs Static Number Sequences: The Case of Keçeci and Oresme Numbers. Open Science Articles (OSAs), Zenodo. https://doi.org/10.5281/zenodo.15833351
 
-Keçeci, M. (2025). oresmej (0.1.0). Open Science Articles (OSAs), Zenodo. https://doi.org/10.5281/zenodo.15874178
+Keçeci, M. (2025). oresmej [Data set]. WorkflowHub. https://doi.org/10.48546/WORKFLOWHUB.DATAFILE.19.1
+
+Keçeci, M. (2025). oresmej. Open Science Articles (OSAs), Zenodo. https://doi.org/10.5281/zenodo.15874178
 ```
 
 ### Chicago
@@ -222,7 +224,9 @@ Keçeci, M. (2025). oresmej (0.1.0). Open Science Articles (OSAs), Zenodo. https
 ```
 Keçeci, Mehmet. Dynamic vs Static Number Sequences: The Case of Keçeci and Oresme Numbers. Open Science Articles (OSAs), Zenodo, 2025. https://doi.org/10.5281/zenodo.15833351
 
-Keçeci, Mehmet. Oresme. Open Science Articles (OSAs), Zenodo, 2025. https://doi.org/10.5281/zenodo.15874178
+Keçeci, Mehmet. oresmej [Data set]. WorkflowHub, 2025. https://doi.org/10.48546/WORKFLOWHUB.DATAFILE.19.1
+
+Keçeci, Mehmet. oresmej. Open Science Articles (OSAs), Zenodo, 2025. https://doi.org/10.5281/zenodo.15874178
 
 ```
 
