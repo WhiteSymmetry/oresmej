@@ -6,7 +6,7 @@
 
 [![figshare DOI](https://img.shields.io/badge/DOI-10.6084/m9.figshare.29554532-blue)](https://doi.org/10.6084/m9.figshare.29554532)
 
-[![figshare DOI](https://img.shields.io/badge/DOI-10.13140/RG.2.2.30518.41284-blue)](https://doi.org/10.13140/RG.2.2.30518.41284)
+[![ResearchGate DOI](https://img.shields.io/badge/DOI-10.13140/RG.2.2.30518.41284-blue)](https://doi.org/10.13140/RG.2.2.30518.41284)
 
 
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/version.svg)](https://anaconda.org/bilgi/oresmej)
