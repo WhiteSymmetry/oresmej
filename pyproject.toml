@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oresmej"
+dynamic = ["version"]
+license = {file = "LICENSE"}
+authors = [
+  { name="Mehmet Keçeci", email="mkececi@yaani.com" },
+]
+description = "Oresme numbers refer to the sums related to the harmonic series"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+]
+
+keywords = ["oresmej"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+]
+
+[tool.setuptools_scm]
+version_file = "src/oresmej/_version.py"  # Sürüm bilgisinin bulunduğu dosya
+local_scheme = "no-local-version"
+
+[project.urls]
+Homepage = "https://github.com/WhiteSymmetry/oresmej/"
+Documentation = "https://WhiteSymmetry.github.io/oresmej/"
+Repository = "https://github.com/WhiteSymmetry/oresmej/"
+Issues = "https://github.com/WhiteSymmetry/oresmej/issues"

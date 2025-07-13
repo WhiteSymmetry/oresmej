@@ -1,0 +1,36 @@
+{% set version = "0.1.0" %}
+
+package:
+  name: oresmej
+  version: {{ version }}
+
+source:
+  path: src/oresmej/  # Yerel kaynak kodunun dizinini belirtin
+  url: 
+  sha256: 
+
+build:
+  noarch: python  # Platformdan bağımsız bir paket oluşturur
+  script: python -m pip install --ignore-installed .  # Kurulum komutu
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+    - setuptools_scm
+  run:
+    - python
+
+about:
+  home: https://github.com/WhiteSymmetry/oresmej
+  license: MIT
+  summary: 'Oresme numbers refer to the sums related to the harmonic series.'
+  description: |
+    Oresme numbers refer to the sums related to the harmonic series.
+  dev_url: https://github.com/WhiteSymmetry/oresmej
+  doc_url: https://github.com/WhiteSymmetry/oresmej
+  doc_source_url: https://github.com/WhiteSymmetry/oresmej/blob/main/README.md
+  

@@ -1,0 +1,33 @@
+{
+  "name": "oresmej",
+  "version": "0.1.0",
+  "description": "Oresme numbers refer to the sums related to the harmonic series.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build",
+    "docs": "sphinx-build -b html docs/ docs/_build/html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WhiteSymmetry/oresmej.git"
+  },
+  "keywords": [
+    "Oresme",
+  ],
+  "author": "Mehmet Keçeci",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WhiteSymmetry/oresmej/issues"
+  },
+  "homepage": "https://github.com/WhiteSymmetry/oresmej#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0"
+  }
+}
