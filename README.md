@@ -16,6 +16,55 @@
 [![Open Source](https://img.shields.io/badge/Open%20Source-Open%20Source-brightgreen.svg)](https://opensource.org/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[![Python CI](https://github.com/WhiteSymmetry/oresmej/actions/workflows/python_ci.yml/badge.svg?branch=main)](https://github.com/WhiteSymmetry/oresmej/actions/workflows/python_ci.yml)
+[![codecov](https://codecov.io/gh/WhiteSymmetry/oresmej/graph/badge.svg?token=???)](https://codecov.io/gh/WhiteSymmetry/oresmej)
+[![Documentation Status](https://readthedocs.org/projects/oresmej/badge/?version=latest)](https://oresmej.readthedocs.io/en/latest/)
+[![Binder](https://terrarium.evidencepub.io/badge_logo.svg)](https://terrarium.evidencepub.io/v2/gh/WhiteSymmetry/oresmej/HEAD)
+[![PyPI version](https://badge.fury.io/py/oresmej.svg)](https://badge.fury.io/py/oresmej)
+[![PyPI Downloads](https://static.pepy.tech/badge/oresmej)](https://pepy.tech/projects/oresmej)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) 
+
+---
+
+<p align="left">
+    <table>
+        <tr>
+            <td style="text-align: center;">PyPI</td>
+            <td style="text-align: center;">
+                <a href="https://pypi.org/project/oresmej/">
+                    <img src="https://badge.fury.io/py/oresmej.svg" alt="PyPI version" height="18"/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Conda</td>
+            <td style="text-align: center;">
+                <a href="https://anaconda.org/bilgi/oresmej">
+                    <img src="https://anaconda.org/bilgi/oresmej/badges/version.svg" alt="conda-forge version" height="18"/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">DOI</td>
+            <td style="text-align: center;">
+                <a href="https://doi.org/10.5281/zenodo.15874178">
+                    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15874178.svg" alt="DOI" height="18"/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">License: MIT</td>
+            <td style="text-align: center;">
+                <a href="https://opensource.org/licenses/MIT">
+                    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License" height="18"/>
+                </a>
+            </td>
+        </tr>
+    </table>
+</p>
+
+---
+
 
 Oresme numbers refer to the sums related to the harmonic series.
 
