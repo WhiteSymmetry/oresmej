@@ -8,7 +8,6 @@
 
 [![ResearchGate DOI](https://img.shields.io/badge/DOI-10.13140/RG.2.2.30518.41284-blue)](https://doi.org/10.13140/RG.2.2.30518.41284)
 
-
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/version.svg)](https://anaconda.org/bilgi/oresmej)
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresmej)
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/platforms.svg)](https://anaconda.org/bilgi/oresmej)
