@@ -2,7 +2,7 @@
   "name": "oresmej",
   "version": "0.1.0",
   "description": "Oresme numbers refer to the sums related to the harmonic series with Jax.",
-    "main": "index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node index.js",
     "serve": "node --experimental-modules index.js",
