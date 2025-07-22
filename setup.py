@@ -13,7 +13,7 @@ setup(
         ],
     author="Mehmet Keçeci",
     description="Oresme numbers refer to the sums related to the harmonic series.",
-    url="https://github.com/oresmej",
+    url="https://github.com/WhiteSymmetry/oresmej",
     license="MIT",
     python_requires='>=3.9',
 )
