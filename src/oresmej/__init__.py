@@ -37,7 +37,7 @@ __all__ = [
     'harmonic_sum_approx_jax',
     'harmonic_convergence_analysis',
     'EULER_MASCHERONI',
-    'ApproximationMethod',
+    'ApproximationMethod'
 ]
 
 # Tip tanımları (JAX durumuna göre)
