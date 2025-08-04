@@ -8,9 +8,7 @@ setup(
     packages=find_packages(where="src"),  # src dizinindeki modülleri bul
     package_dir={"": "src"},  # src dizinine yönlendirme
     include_package_data=True,  # Ek dosyaları dahil et
-    install_requires=[
-    	"numpy",
-        ],
+    install_requires=["numpy"],
     author="Mehmet Keçeci",
     description="Oresme numbers refer to the sums related to the harmonic series.",
     url="https://github.com/WhiteSymmetry/oresmej",
