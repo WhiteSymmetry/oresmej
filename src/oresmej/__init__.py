@@ -348,7 +348,6 @@ if __name__ == "__main__":
         print(f"oresmej {__version__} başarıyla yüklendi")
         print(f"JAX desteği: {'AKTİF' if JAX_AVAILABLE else 'PASİF'}")
     _test_imports()
-
 """
 
 """
