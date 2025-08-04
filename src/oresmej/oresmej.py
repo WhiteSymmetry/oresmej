@@ -2,16 +2,18 @@
 """
 A module for generating Oresme numbers (harmonic series partial sums)
 """
-import os
-import jax
-import jax.numpy as jnp
+
+from enum import Enum, auto
 from functools import partial, lru_cache
 from fractions import Fraction
-import math
-from typing import List, Union, Generator, Tuple, Optional
-import time
+import jax
+import jax.numpy as jnp
 import logging
-from enum import Enum, auto
+import math
+import os
+import time
+from typing import List, Union, Generator, Tuple, Optional
+
 
 # -----------------------------
 # Logging Configuration
@@ -344,15 +346,12 @@ def harmonic_sum_approx(n: Union[float, jnp.ndarray],
                       order: int = 4) -> Union[float, jnp.ndarray]:
     """
     Advanced harmonic series approximation using Euler-Maclaurin formula
-    
     Args:
         n: Input value(s) (can be scalar or array)
         method: Approximation method (EULER_MASCHERONI, EULER_MACLAURIN, ASYMPTOTIC)
-        order: Order of approximation for Euler-Maclaurin (2, 4, or 6)
-    
+        order: Order of approximation for Euler-Maclaurin (2, 4, or 6)   
     Returns:
         Approximate harmonic sum H(n)
-    
     Examples:
         >>> harmonic_sum_approx(1e6)
         14.392726722865724
@@ -397,7 +396,6 @@ def harmonic_sum_approx_jax(n: jnp.ndarray,
                           order: int = 4) -> jnp.ndarray:
     """
     JAX-compatible optimized version of harmonic approximation
-    
     Note: Uses integer flags instead of Enum for better JIT compatibility
     """
     gamma = EULER_MASCHERONI
@@ -431,10 +429,8 @@ def harmonic_sum_approx_jax(n: jnp.ndarray,
 def harmonic_convergence_analysis(n_values: jnp.ndarray) -> dict:
     """
     Analyze harmonic series convergence for given values
-    
     Args:
         n_values: Array of n values to analyze
-    
     Returns:
         Dictionary containing:
         - exact_sums: Exact harmonic sums
@@ -530,5 +526,4 @@ if __name__ == "__main__":
             plot_comparative_performance()
         else:
             print(f"oresmej {__version__} başarıyla yüklendi")
-
     _cli()
