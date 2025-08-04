@@ -99,7 +99,7 @@ if __name__ == "__main__":
         missing = [name for name in __all__ if name not in globals()]
         if missing:
             raise RuntimeError(f"Eksik fonksiyonlar: {missing}")
-            print(f"oresmej {__version__} başarıyla yüklendi")
+        print(f"oresmej {__version__} başarıyla yüklendi")
         print(f"JAX desteği: {'AKTİF' if JAX_AVAILABLE else 'PASİF'}")
         print("Örnek çıktı (H(5)):", harmonic_number(5))
     _test_imports()
@@ -339,7 +339,7 @@ if __name__ == "__main__":
         # İçe aktarılan fonksiyonları doğrular
         missing = [name for name in __all__ if not globals().get(name)]
         if missing:
-            raise RuntimeError(f"Eksik fonksiyonlar: {missing}")    
+            raise RuntimeError(f"Eksik fonksiyonlar: {missing}")
         print(f"oresmej {__version__} başarıyla yüklendi")
         print(f"JAX desteği: {'AKTİF' if JAX_AVAILABLE else 'PASİF'}")
     _test_imports()
