@@ -352,7 +352,7 @@ def harmonic_sum_approx(n: Union[float, jnp.ndarray],
     Args:
         n: Input value(s) (can be scalar or array)
         method: Approximation method (EULER_MASCHERONI, EULER_MACLAURIN, ASYMPTOTIC)
-        order: Order of approximation for Euler-Maclaurin (2, 4, or 6)   
+        order: Order of approximation for Euler-Maclaurin (2, 4, or 6)
     Returns:
         Approximate harmonic sum H(n)
     Examples:
@@ -511,6 +511,8 @@ __all__ = [
     'harmonic_convergence_analysis',
 ]
 
+__version__ = "0.1.0"  # Önce tanımla
+
 if __name__ == "__main__":
     def _cli():
         """Konsol arayüzü için ana fonksiyon"""
@@ -521,7 +523,6 @@ if __name__ == "__main__":
         parser.add_argument('--plot', action='store_true', help='Karşılaştırma grafiklerini göster')
         parser.add_argument('-v', '--version', action='version', version=f'oresmej {__version__}')
         args = parser.parse_args()
-        
         if args.test:
             from .tests import run_tests  # Test modülünüz varsa
             run_tests()
