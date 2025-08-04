@@ -45,7 +45,6 @@ logging.getLogger('jax._src.xla_bridge').setLevel(logging.WARNING)
 def enable_gpu(enable: bool = True):
     """
     Enable/disable GPU usage
-    
     Args:
         enable: If True, attempts to use GPU. If False, forces CPU usage.
     """
