@@ -100,13 +100,10 @@ if __name__ == "__main__":
         missing = [name for name in __all__ if name not in globals()]
         if missing:
             raise RuntimeError(f"Eksik fonksiyonlar: {missing}")
-        
         print(f"oresmej {__version__} başarıyla yüklendi")
         print(f"JAX desteği: {'AKTİF' if JAX_AVAILABLE else 'PASİF'}")
         print("Örnek çıktı (H(5)):", harmonic_number(5))
-    
     _test_imports()
-
 
 """
 # Sorunsuz
@@ -238,7 +235,6 @@ if not JAX_AVAILABLE:
         stacklevel=2
     )
 
-
 # Testler (doğrudan çalıştırılırsa)
 if __name__ == "__main__":
     def _test_imports():
@@ -250,8 +246,8 @@ if __name__ == "__main__":
         print(f"oresmej {__version__} başarıyla yüklendi")
         print(f"JAX desteği: {'AKTİF' if JAX_AVAILABLE else 'PASİF'}")
         print("Örnek çıktı (H(5)):", harmonic_number(5))
-    
     _test_imports()
+    
 """    
 
 """
@@ -307,7 +303,6 @@ try:
         EULER_MASCHERONI,
         ApproximationMethod
     )
-    
     # JAX fonksiyonları koşullu içe aktarım
     if JAX_AVAILABLE:
         from .oresmej import (
@@ -317,8 +312,7 @@ try:
             harmonic_sum_approx,
             harmonic_sum_approx_jax,
             harmonic_convergence_analysis
-        )
-        
+        )        
 except ImportError as e:
     raise ImportError(
         f"oresmej: Temel fonksiyonlar yüklenemedi - {str(e)}"
@@ -351,11 +345,9 @@ if __name__ == "__main__":
         # İçe aktarılan fonksiyonları doğrular
         missing = [name for name in __all__ if not globals().get(name)]
         if missing:
-            raise RuntimeError(f"Eksik fonksiyonlar: {missing}")
-        
+            raise RuntimeError(f"Eksik fonksiyonlar: {missing}")    
         print(f"oresmej {__version__} başarıyla yüklendi")
         print(f"JAX desteği: {'AKTİF' if JAX_AVAILABLE else 'PASİF'}")
-    
     _test_imports()
 
 """
@@ -395,10 +387,10 @@ def eski_fonksiyon():
         stacklevel=2
     )
 
+#__all__ = ["", ""]
 
 # Paket sürüm numarası
 __version__ = "0.1.0"
-
 
 # Geliştirme sırasında test etmek için
 if __name__ == "__main__":
