@@ -1,7 +1,6 @@
 #__init__.py
 """
 oresmej package initialization
-
 This module serves as the main entry point for the oresmej package,
 handling version control, imports, and compatibility warnings.
 """
@@ -386,8 +385,6 @@ def eski_fonksiyon():
         category=DeprecationWarning,
         stacklevel=2
     )
-
-#__all__ = ["", ""]
 
 # Paket sürüm numarası
 __version__ = "0.1.0"
