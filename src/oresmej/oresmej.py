@@ -157,10 +157,13 @@ def harmonic_number_approx(
 
 @lru_cache(maxsize=32)
 def bernoulli_number(n: int) -> float:
-    """Bernoulli numbers (cached)"""
-    if n == 0: return 1.0
-    elif n == 1: return -0.5
-    elif n % 2 != 0: return 0.0
+    """Bernoulli numbers (cached): Bernoulli sayılarını hesaplar (önbellekli olabilir)."""
+    if n == 0:
+        return 1.0
+    elif n == 1:
+        return -0.5
+    elif n % 2 != 0:
+        return 0.0
     else:
         from scipy.special import bernoulli
         return bernoulli(n)[n]
