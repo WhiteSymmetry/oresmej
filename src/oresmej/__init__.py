@@ -37,7 +37,8 @@ __all__ = [
     'harmonic_sum_approx_jax',
     'harmonic_convergence_analysis',
     'EULER_MASCHERONI',
-    'ApproximationMethod'
+    'ApproximationMethod',
+    'is_in_hilbert'
 ]
 
 # Tip tanımları (JAX durumuna göre)
@@ -61,7 +62,8 @@ try:
         harmonic_number,
         harmonic_number_approx,
         EULER_MASCHERONI,
-        ApproximationMethod
+        ApproximationMethod,
+        is_in_hilbert
     )
 
     if JAX_AVAILABLE:
