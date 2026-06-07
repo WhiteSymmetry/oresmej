@@ -14,8 +14,6 @@ import os
 import time
 from typing import List, Union, Generator, Tuple, Optional
 
-__version__ = "0.1.3"  # Önce tanımla
-
 # -----------------------------
 # Logging Configuration
 # -----------------------------
