@@ -1,13 +1,19 @@
 # Project Information
 project = 'oresmej'
 author = 'Mehmet Keçeci'
-copyright = '2025, Mehmet Keçeci'
+copyright = '2025-2026, Mehmet Keçeci'
 
+try:
+    from oresmej import __version__
+    version = __version__
+    release = __version__
+except (ImportError, AttributeError) as e:
+    print(f"Warning: Could not import __version__ from oresmej: {e}")
 # Version Management
 # from setuptools_scm import get_version
 # version = get_version(root='..', relative_to=__file__)
-version = '0.1.2'  # Replace with your actual version number
-release = version
+#version = '0.1.3'  # Replace with your actual version number
+#release = version
 
 # General Configuration
 master_doc = 'index'
