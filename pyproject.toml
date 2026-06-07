@@ -15,10 +15,7 @@ authors = [
 description = "Oresme numbers refer to the sums related to the harmonic series"
 readme = "README.md"
 requires-python = ">=3.11"
-
 keywords = ["oresmej"]
-readme = "README.md"
-requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
