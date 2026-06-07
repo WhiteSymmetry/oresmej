@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 def get_version():
-    with open('src/oresmej/__init__.py', 'r', encoding='utf-8') as f:
+    with open('oresmej/__init__.py', 'r', encoding='utf-8') as f:
         content = f.read()
     match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", content, re.M)
     if match:
