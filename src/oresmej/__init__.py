@@ -11,7 +11,6 @@ import sys
 from typing import List, Union, Optional
 import warnings
 
-
 # JAX kontrolü
 try:
     import jax.numpy as jnp
@@ -20,9 +19,9 @@ except ImportError:
     JAX_AVAILABLE = False
     jnp = None  # JAX desteklenmiyor
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 __author__ = "Mehmet Keçeci <mkececi@yaani.com>"
-__license__ = "MIT"
+__license__ = "GPL-3.0-or-later"
 
 # Dışa aktarılacak semboller listesi
 __all__ = [
@@ -123,10 +122,6 @@ except ImportError:
     JAX_AVAILABLE = False
     import numpy as np
     jnp = None  # JAX desteklenmiyor
-
-__version__ = "0.1.0"
-__author__ = "----"
-__license__ = "MIT"
 
 # Dışa aktarılacak semboller listesi
 __all__ = [
