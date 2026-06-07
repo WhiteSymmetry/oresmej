@@ -1,39 +1,44 @@
+# pyproject.toml
+
 [build-system]
-requires = ["setuptools", "wheel", "setuptools_scm"]
+requires = ["setuptools>=82.0.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "oresmej"
-dynamic = ["version"]
-license = {file = "LICENSE"}
+version = "0.1.2"
+dynamic = ["keywords", "maintainers"]
+license = "GPL-3.0-or-later"  # SPDX ID
 authors = [
   { name="Mehmet Keçeci", email="mkececi@yaani.com" },
 ]
 description = "Oresme numbers refer to the sums related to the harmonic series"
 readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-]
+requires-python = ">=3.11"
 
 keywords = ["oresmej"]
+readme = "README.md"
+requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
-    "Topic :: Software Development",
-    "Topic :: Scientific/Engineering",
-    "Typing :: Typed",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX",
-    "Operating System :: Unix",
-    "Operating System :: MacOS",
-    "License :: OSI Approved :: MIT License",
-    "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
 ]
 
-[tool.setuptools_scm]
-version_file = "src/oresmej/_version.py"  # Sürüm bilgisinin bulunduğu dosya
-local_scheme = "no-local-version"
+dependencies = ["numpy", "matplotlib"]
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov", "pytest-mock", "ruff", "numpy", "matplotlib",]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[dependency-groups]
+build = [
+    "setuptools (>=82.0.1)",
+    "cython (>=3.2.4)"
+]
 
 [project.urls]
 Homepage = "https://github.com/WhiteSymmetry/oresmej/"
