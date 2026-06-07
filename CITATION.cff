@@ -30,8 +30,8 @@ repository-artifact: 'https://pypi.org/project/oresmej/'
 abstract: >-
   Oresme numbers refer to the sums related to the harmonic series.
 keywords:
-  - Oresme
+  - Oresmej
 license: GPL-3.0-or-later
 commit: 'Revision: 1'
-version: 0.1.0
+version: 0.1.4
 date-released: '2025-07-12'
