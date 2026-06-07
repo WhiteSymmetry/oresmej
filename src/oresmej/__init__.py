@@ -46,7 +46,6 @@ __all__ = [
     'harmonic_numbers_jax',
     'harmonic_generator_jax',
     'harmonic_number_approx',
-    #'harmonic_sum_approx',
     'harmonic_sum_approx_jax',
     'harmonic_convergence_analysis',
     'EULER_MASCHERONI',
@@ -84,7 +83,6 @@ try:
             harmonic_number_jax,
             harmonic_numbers_jax,
             harmonic_generator_jax,
-            #harmonic_sum_approx,
             harmonic_sum_approx_jax,
             harmonic_convergence_analysis
         )
@@ -96,7 +94,7 @@ except ImportError as e:
 # Kullanım uyarıları
 if sys.version_info < (3, 8):
     warnings.warn(
-        "oresmej: Python 3.8+ önerilir. 3.7 desteği v1.0'da kaldırılacak",
+        "oresmej: Python 3.11+ önerilir.",
         FutureWarning,
         stacklevel=2
     )
