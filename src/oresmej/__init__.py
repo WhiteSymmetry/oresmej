@@ -33,7 +33,6 @@ except ImportError:
     JAX_AVAILABLE = False
     jnp = None  # JAX desteklenmiyor
 
-__version__ = "0.1.3"
 __author__ = "Mehmet Keçeci <mkececi@yaani.com>"
 __license__ = "MIT"
 
