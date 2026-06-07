@@ -14,6 +14,7 @@ import os
 import time
 from typing import List, Union, Generator, Tuple, Optional
 
+__version__ = "0.1.3"  # Önce tanımla
 
 # -----------------------------
 # Logging Configuration
@@ -573,8 +574,6 @@ __all__ = [
     'harmonic_sum_approx_jax', 
     'harmonic_convergence_analysis',
 ]
-
-__version__ = "0.1.0"  # Önce tanımla
 
 if __name__ == "__main__":
     def _cli():
