@@ -169,32 +169,23 @@ def bernoulli_number(n: int) -> float:
 # -----------------------------
 # Performance Analysis
 # -----------------------------
-
-def benchmark_harmonic(n: int, runs: int = 10) -> dict:
-    """Benchmark different calculation methods"""
+def benchmark_harmonic(compute_funcs: Dict[str, callable], n: int, runs: int = 10) -> dict:
+    """
+    Benchmark given compute functions.
+    Verilen hesaplama fonksiyonlarını kıyaslar.
+    """
     results = {}
-    
-    # Warm-up call
-    _ = harmonic_number_jax(10).block_until_ready()
-    
-    # Pure Python
-    start = time.perf_counter()
-    for _ in range(runs):
-        _ = harmonic_number(n)
-    results['pure_python'] = (time.perf_counter() - start)/runs
-    
-    # JAX
-    start = time.perf_counter()
-    for _ in range(runs):
-        _ = harmonic_number_jax(n).block_until_ready()
-    results['jax'] = (time.perf_counter() - start)/runs
-    
-    # Approximate
-    start = time.perf_counter()
-    for _ in range(runs):
-        _ = harmonic_number_approx(n)
-    results['approximate'] = (time.perf_counter() - start)/runs
-    
+    for name, func in compute_funcs.items():
+        # warm-up (JAX varsa block_until_ready)
+        try:
+            func(10).block_until_ready()
+        except Exception:
+            pass
+        start = time.perf_counter()
+        for _ in range(runs):
+            func(n)
+        elapsed = time.perf_counter() - start
+        results[name] = elapsed / runs
     return results
 
 def compare_with_approximation(n: int) -> dict:
@@ -554,62 +545,47 @@ def main():
     """Main function"""
     # GPU/CPU configuration
     enable_gpu(False)
-    
+
     # Calculations
     logger.info("Oresme Sequence (first 5 terms): %s", oresme_sequence(5))
     logger.info("Fractional Harmonic Numbers (H1-H3): %s", harmonic_numbers(3))
     logger.info("5th Harmonic Number: %.4f", harmonic_number(5))
-    
+
     # Approximate values
     logger.info("1000th Harmonic Number Approximations:")
-    logger.info("Euler-Mascheroni: %.8f", 
-               harmonic_number_approx(1000, ApproximationMethod.EULER_MASCHERONI))
-    logger.info("Asymptotic: %.8f", 
-               harmonic_number_approx(1000, ApproximationMethod.ASYMPTOTIC))
-    
+    logger.info("Euler-Mascheroni: %.8f",
+                harmonic_number_approx(1000, ApproximationMethod.EULER_MASCHERONI))
+    logger.info("Asymptotic: %.8f",
+                harmonic_number_approx(1000, ApproximationMethod.ASYMPTOTIC))
+
     # JAX calculations
     _ = harmonic_number_jax(10).block_until_ready()  # Warm-up
     logger.info("JAX Accelerated (H1-H5): %s", harmonic_numbers_jax(5))
     logger.info("JAX Generator (H1-H3): %s", list(harmonic_generator_jax(3)))
-    
-    # Performance test
+
+    # Performance test (sözlük ile)
     n_test = 100000
     logger.info("Performance Test (n=%d):", n_test)
-    bench_results = benchmark_harmonic(n_test)
+    bench_results = benchmark_harmonic({
+        "python": lambda n: harmonic_number(n),
+        "jax": lambda n: harmonic_number_jax(n).block_until_ready(),
+        "approx": lambda n: harmonic_number_approx(n)
+    }, n_test, runs=10)
     for method, time_taken in bench_results.items():
         logger.info("%15s: %.6f s/run", method, time_taken)
-    
+
     # Comparison
     logger.info("Exact/Approximate Value Comparison (H_100):")
     comparison = compare_with_approximation(100)
     for key, value in comparison.items():
         logger.info("%20s: %.10f", key, value)
-        
-"""
-if __name__ == "__main__":
-    main()
-    plot_comparative_performance()
-"""
 
-__all__ = [
-    'oresme_sequence',
-    'harmonic_numbers',
-    'harmonic_number',
-    'harmonic_number_jax',
-    'harmonic_numbers_jax',
-    'harmonic_generator_jax',
-    'harmonic_number_approx',
-    'EULER_MASCHERONI',
-    'harmonic_sum_approx', 
-    'harmonic_sum_approx_jax', 
-    'harmonic_convergence_analysis',
-]
 
 if __name__ == "__main__":
     def _cli():
         """Konsol arayüzü için ana fonksiyon"""
         from argparse import ArgumentParser
-        
+
         parser = ArgumentParser(description='oresmej: Harmonik sayı ve Oresme dizisi hesaplamaları')
         parser.add_argument('--test', action='store_true', help='Tüm fonksiyonları test et')
         parser.add_argument('--plot', action='store_true', help='Karşılaştırma grafiklerini göster')
@@ -619,7 +595,14 @@ if __name__ == "__main__":
             from .tests import run_tests  # Test modülünüz varsa
             run_tests()
         elif args.plot:
-            plot_comparative_performance()
+            # Sözlük ile plot_comparative_performance çağrısı
+            plot_comparative_performance({
+                "python": lambda n: harmonic_number(n),
+                "jax": lambda n: harmonic_number_jax(n).block_until_ready(),
+                "approx": lambda n: harmonic_number_approx(n)
+            }, max_n=50000, step=5000, runs=10)
         else:
             print(f"oresmej {__version__} başarıyla yüklendi")
+            main()
+
     _cli()
