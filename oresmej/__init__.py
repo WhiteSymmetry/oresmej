@@ -33,9 +33,9 @@ except ImportError:
     JAX_AVAILABLE = False
     jnp = None  # JAX desteklenmiyor
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 __author__ = "Mehmet Keçeci <mkececi@yaani.com>"
-__license__ = "MIT"
+__license__ = "AGPL 3.0-or-later"
 
 # Dışa aktarılacak semboller listesi
 __all__ = [
@@ -51,6 +51,10 @@ __all__ = [
     'EULER_MASCHERONI',
     'ApproximationMethod',
     'is_in_hilbert'
+    #test
+    'plot_comparative_performance',
+    '_run_tests',
+    'main',
 ]
 
 # Tip tanımları (JAX durumuna göre)
@@ -76,6 +80,10 @@ try:
         EULER_MASCHERONI,
         ApproximationMethod,
         is_in_hilbert
+        #test
+        plot_comparative_performance,
+        _run_tests,
+        main,
     )
 
     if JAX_AVAILABLE:
