@@ -10,6 +10,7 @@ import jax
 import jax.numpy as jnp
 import logging
 import math
+import numpy as np
 import os
 import time
 from typing import List, Union, Generator, Tuple, Optional
@@ -538,6 +539,103 @@ def is_in_hilbert(sequence: Union[List[float], np.ndarray, Generator[float, None
     return False
 
 # -----------------------------
+# Utility Functions / Yardımcı Fonksiyonlar
+# -----------------------------
+def harmonic_sequence(n_terms: int, start: int = 1) -> np.ndarray:
+    """Generate harmonic sequence terms: a_n = 1/n / Harmonik dizi terimlerini üretir: a_n = 1/n"""
+    if n_terms <= 0:
+        raise ValueError("Number of terms must be positive / Terim sayısı pozitif olmalıdır")
+    indices = np.arange(start, start + n_terms, dtype=float)
+    return 1.0 / indices
+
+
+def p_series(p: float, n_terms: int, start: int = 1) -> np.ndarray:
+    """Generate p-series: a_n = 1/n^p / p-serisi üretir: a_n = 1/n^p"""
+    if n_terms <= 0:
+        raise ValueError("Number of terms must be positive / Terim sayısı pozitif olmalıdır")
+    indices = np.arange(start, start + n_terms, dtype=float)
+    return 1.0 / (indices ** p)
+
+
+def geometric_sequence(ratio: float, n_terms: int, start: int = 1) -> np.ndarray:
+    """Generate geometric sequence: a_n = ratio^n / Geometrik dizi üretir: a_n = ratio^n"""
+    if n_terms <= 0:
+        raise ValueError("Number of terms must be positive / Terim sayısı pozitif olmalıdır")
+    exponents = np.arange(start, start + n_terms, dtype=float)
+    return ratio ** exponents
+
+# -----------------------------
+# Analysis utilities / Analiz araçları
+# -----------------------------
+def analyze_sequence(
+    sequence: Union[List[float], np.ndarray],
+    name: str = "Sequence / Dizi",
+    n_display: int = 5
+) -> dict:
+    """Detailed analysis of a sequence / Bir dizinin detaylı analizi"""
+    seq = np.array(sequence, dtype=float)
+    squares = seq ** 2
+    cumsum = np.cumsum(squares)
+    results = {
+        'name': name,
+        'first_terms': seq[:n_display].tolist(),
+        'n_terms': len(seq),
+        'sum_of_squares': cumsum[-1] if np.isfinite(cumsum[-1]) else np.inf,
+        'in_hilbert': is_in_hilbert(seq),
+        'max_term': float(np.max(np.abs(seq))),
+        'decay_rate': None
+    }
+    if len(seq) > 100 and np.all(seq[100:] > 0):
+        log_terms = np.log(seq[100:] + 1e-12)
+        log_n = np.log(np.arange(100, len(seq)))
+        try:
+            alpha = -np.polyfit(log_n, log_terms, 1)[0]
+            results['decay_rate'] = alpha
+            results['decay_description'] = f"~ 1/n^{alpha:.2f}"
+        except Exception:
+            pass
+    return results
+
+
+def compare_sequences(sequences: dict, n_test: int = 5000) -> None:
+    """Compare multiple sequences / Birden fazla diziyi karşılaştırır"""
+    results = []
+    for name, seq in sequences.items():
+        if len(seq) < n_test:
+            # Auto-extend / Otomatik uzat
+            if "n/2" in name or "Oresme" in name:
+                indices = np.arange(1, n_test + 1)
+                seq = indices / (2.0 ** indices)
+            elif "1/n" in name and "1/n²" not in name and "1/n³" not in name:
+                indices = np.arange(1, n_test + 1)
+                seq = 1.0 / indices
+            elif "1/n²" in name:
+                indices = np.arange(1, n_test + 1)
+                seq = 1.0 / (indices ** 2)
+            elif "1/√n" in name:
+                indices = np.arange(1, n_test + 1)
+                seq = 1.0 / np.sqrt(indices)
+            elif "e⁻ⁿ" in name or "exp" in name:
+                indices = np.arange(1, n_test + 1)
+                seq = np.exp(-indices)
+        test_seq = seq[:n_test]
+        squares_sum = np.sum(test_seq ** 2)
+        in_hilbert = is_in_hilbert(test_seq)
+        results.append({
+            "Sequence / Dizi": name,
+            "First 5 terms / İlk 5 terim": str(test_seq[:5].tolist())[:60],
+            "∑ a_n²": f"{squares_sum:.6f}" if np.isfinite(squares_sum) else "∞",
+            "In ℓ²? / ℓ²'de mi?": "✓ Yes / Evet" if in_hilbert else "✗ No / Hayır"
+        })
+    try:
+        from tabulate import tabulate
+        print(tabulate(results, headers="keys", tablefmt="grid", stralign="left"))
+    except ImportError:
+        for row in results:
+            print(row)
+
+
+# -----------------------------
 # Visualization / Görselleştirme
 # -----------------------------
 def plot_comparative_performance(max_n=50000, step=5000, runs=10):
@@ -563,7 +661,7 @@ def plot_comparative_performance(max_n=50000, step=5000, runs=10):
         np_times = []
         for _ in range(runs):
             t0 = time.perf_counter()
-            _ = harmonic_numbers_numpy(n)
+            _ = harmonic_numbers_jax(n)
             np_times.append(time.perf_counter() - t0)
 
         # Approx
@@ -628,13 +726,13 @@ def _run_tests(verbose: bool = True) -> bool:
     check(abs(h5 - 2.283333333333333) < 1e-6, "harmonic_number(5)")
 
     # 4. NumPy harmonic numbers
-    h_arr = harmonic_numbers_numpy(5)
-    check(len(h_arr) == 5, "harmonic_numbers_numpy(5) length")
+    h_arr = harmonic_numbers_jax(5)
+    check(len(h_arr) == 5, "harmonic_numbers_jax(5) length")
     check(abs(h_arr[4] - 2.283333333333333) < 1e-6, "NumPy H5 value")
 
     # 5. Generator
-    gen_vals = list(harmonic_generator(5))
-    check(len(gen_vals) == 5, "harmonic_generator(5) length")
+    gen_vals = list(harmonic_generator_jax(5))
+    check(len(gen_vals) == 5, "harmonic_generator_jax(5) length")
     check(abs(gen_vals[4] - 2.283333333333333) < 1e-6, "Generator H5 value")
 
     # 6. Approximations
@@ -693,7 +791,7 @@ def _run_tests(verbose: bool = True) -> bool:
     try:
         bench = benchmark_harmonic({
             "python": lambda n: harmonic_number(n),
-            "numpy": lambda n: harmonic_numbers_numpy(n)
+            "numpy": lambda n: harmonic_numbers_jax(n)
         }, n=100, runs=3)
         check("python" in bench, "benchmark_harmonic keys")
     except Exception as e:
