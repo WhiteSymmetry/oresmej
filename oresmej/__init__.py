@@ -51,6 +51,11 @@ __all__ = [
     'EULER_MASCHERONI',
     'ApproximationMethod',
     'is_in_hilbert'
+    'compare_sequences',
+    'analyze_sequence',
+    'geometric_sequence',
+    'p_series',
+    'harmonic_sequence',
     #test
     'plot_comparative_performance',
     '_run_tests',
@@ -79,7 +84,12 @@ try:
         harmonic_number_approx,
         EULER_MASCHERONI,
         ApproximationMethod,
-        is_in_hilbert
+        is_in_hilbert,
+        compare_sequences,
+        analyze_sequence,
+        geometric_sequence,
+        p_series,
+        harmonic_sequence,
         #test
         plot_comparative_performance,
         _run_tests,
