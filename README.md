@@ -251,6 +251,13 @@ importlib.reload(oj)
 # 3. Fonksiyonun alternatif isimle var olup olmadığını kontrol
 print("Alternatif fonksiyon isimleri:", [name for name in dir(oj) if 'harmonic' in name.lower()])
 ```
+
+```python
+from oresme.oresme import _run_tests, main
+_run_tests()
+main()
+```
+
 ---
 
 ### Development
