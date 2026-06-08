@@ -1,4 +1,6 @@
-# Oresme Jax
+# Oresmej (Oresme+Jax)
+
+## Oresmej <img src="https://github.com/WhiteSymmetry/Oresmej/blob/main/docs/oresmej-logo.jpg" alt="Oresmej" align="right" height="140"/>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15874178.svg)](https://doi.org/10.5281/zenodo.15874178)
 
