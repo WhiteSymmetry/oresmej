@@ -253,7 +253,7 @@ print("Alternatif fonksiyon isimleri:", [name for name in dir(oj) if 'harmonic' 
 ```
 
 ```python
-from oresme.oresme import _run_tests, main
+from oresme import _run_tests, main
 _run_tests()
 main()
 ```
