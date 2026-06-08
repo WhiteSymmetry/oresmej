@@ -1,6 +1,6 @@
 # _version.py
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 __license__ = "GPL-3.0-or-later"
 __description__ = "Oresme numbers refer to the sums related to the harmonic series."
 __author__ = "Mehmet Keçeci"
