@@ -453,6 +453,8 @@ def is_in_hilbert(sequence: Union[List[float], np.ndarray, Generator[float, None
                  max_terms: int = 10000, 
                  tolerance: float = 1e-6) -> bool:
     """
+    Test whether a sequence belongs to ℓ² (Hilbert space).
+    Bir dizinin ℓ² (Hilbert) uzayında olup olmadığını test eder.
     Determines if a given sequence belongs to the Hilbert space ℓ².
     A sequence {a_n} is in ℓ² (Hilbert space) if the sum of the squares of its terms is finite:
         Σ |a_n|² < ∞
@@ -491,28 +493,58 @@ def is_in_hilbert(sequence: Union[List[float], np.ndarray, Generator[float, None
       analytical proof, but this function provides a practical check for common sequences.
     - Sequences like 1/n, 1/n^(0.6), log(n)/n are tested implicitly via their decay rate.
     """
+
     # Convert generator to list if needed
     if isinstance(sequence, Generator):
         sequence = list(sequence)
-    arr = np.array(sequence, dtype=float)
-    squares = arr ** 2
 
-    # Compute cumulative sum of squares
-    cumsum = np.cumsum(squares)
-    
-    # If we have fewer than 2 terms, can't check convergence
-    if len(cumsum) < 2:
-        return bool(np.isfinite(cumsum[0]))
-    
-    # Check if increments in cumulative sum become smaller than tolerance
-    increments = np.diff(cumsum)
-    recent_increments = increments[-100:]  # Last 100 increments for stability
-    
-    # If all recent increments are below tolerance, assume convergence
-    if np.all(recent_increments < tolerance):
+    arr = np.array(sequence, dtype=float)
+
+    if arr.size == 0:
         return True
-    else:
+
+    if not np.all(np.isfinite(arr)):
         return False
+
+    n_terms = min(len(arr), max_terms)
+    test_seq = arr[:n_terms]
+
+    squares = test_seq ** 2
+    cumsum = np.cumsum(squares)
+    total_sum = cumsum[-1]
+
+    if not np.isfinite(total_sum):
+        return False
+
+    # p‑series heuristic – eşik 100
+    if n_terms > 100 and np.all(test_seq[100:] > 0):
+        log_terms = np.log(test_seq[100:] + 1e-12)
+        log_n = np.log(np.arange(100, n_terms))
+        try:
+            alpha = -np.polyfit(log_n, log_terms, 1)[0]
+            if alpha > 0.5:
+                return True
+            elif 0 < alpha <= 0.5:
+                return False
+            elif alpha > 10:   # üstel sönüm
+                return True
+        except Exception:
+            pass
+
+    # kuyruk katkısı
+    if n_terms > 1000:
+        last_contribution = squares[-1000:]
+        if np.sum(last_contribution) < tolerance:
+            return True
+
+    # oran testi (üstel sönüm)
+    if n_terms > 100:
+        ratios = np.abs(test_seq[1:100] / (test_seq[:99] + 1e-12))
+        if np.mean(ratios) < 0.95:
+            return True
+
+    # Hiçbir yakınsama belirtisi yoksa ℓ²'de değildir
+    return False
 
 # -----------------------------
 # Main Program
