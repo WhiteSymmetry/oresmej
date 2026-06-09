@@ -56,6 +56,7 @@ __all__ = [
     'geometric_sequence',
     'p_series',
     'harmonic_sequence',
+    'enable_gpu',
     #test
     'plot_comparative_performance',
     '_run_tests',
@@ -90,6 +91,7 @@ try:
         geometric_sequence,
         p_series,
         harmonic_sequence,
+        enable_gpu,
         #test
         plot_comparative_performance,
         _run_tests,
