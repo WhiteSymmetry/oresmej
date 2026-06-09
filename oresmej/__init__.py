@@ -35,7 +35,7 @@ except ImportError:
 
 __version__ = "0.1.6"
 __author__ = "Mehmet Keçeci <mkececi@yaani.com>"
-__license__ = "AGPL 3.0-or-later"
+__license__ = "AGPL-3.0-or-later"
 
 # Dışa aktarılacak semboller listesi
 __all__ = [
