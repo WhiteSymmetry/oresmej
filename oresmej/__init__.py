@@ -50,7 +50,7 @@ __all__ = [
     'harmonic_convergence_analysis',
     'EULER_MASCHERONI',
     'ApproximationMethod',
-    'is_in_hilbert'
+    'is_in_hilbert',
     'compare_sequences',
     'analyze_sequence',
     'geometric_sequence',
