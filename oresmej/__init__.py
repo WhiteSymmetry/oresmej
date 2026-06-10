@@ -62,6 +62,7 @@ __all__ = [
     '_run_tests',
     'main',
     'benchmark_harmonic',
+    'compare_benchmarks',
 ]
 
 # Tip tanımları (JAX durumuna göre)
@@ -98,6 +99,7 @@ try:
         _run_tests,
         main,
         benchmark_harmonic,
+        compare_benchmarks,
     )
 
     if JAX_AVAILABLE:
