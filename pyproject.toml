@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "oresmej"
-version = "0.1.7"
+version = "0.1.8"
 dynamic = ["keywords", "maintainers"]
 license = "AGPL-3.0-or-later"  # SPDX ID
 authors = [
@@ -26,7 +26,7 @@ classifiers = [
 dependencies = ["numpy", "matplotlib", "jax"]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-cov", "pytest-mock", "ruff", "numpy", "matplotlib","jax"]
+test = ["pytest", "pytest-cov", "pytest-mock", "ruff", "numpy", "matplotlib", "jax"]
 
 [tool.setuptools.packages.find]
 where = ["."]
