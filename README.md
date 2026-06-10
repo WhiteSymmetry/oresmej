@@ -253,7 +253,7 @@ print("Alternatif fonksiyon isimleri:", [name for name in dir(oj) if 'harmonic' 
 ```
 
 ```python
-from oresme import _run_tests, main
+from oresmej import _run_tests, main
 _run_tests()
 main()
 ```
@@ -319,3 +319,65 @@ Keçeci, Mehmet. oresmej. Open Science Articles (OSAs), Zenodo, 2025. https://do
 ```
 This project is licensed under the AGPL-3.0-or-later License.
 ```
+
+### Pixi:
+
+[![Pixi](https://img.shields.io/badge/Pixi-Pixi-brightgreen.svg)](https://prefix.dev/channels/bilgi)
+
+pixi init oresmej
+
+cd oresmej
+
+pixi workspace channel add [https://prefix.dev/channels/bilgi](https://prefix.dev/channels/bilgi) --prepend
+
+✔ Added https://prefix.dev/channels/bilgi
+
+pixi add oresmej
+
+✔ Added oresmej >=...,<1
+
+pixi install
+
+pixi shell
+
+pixi run python -c "import oresmej; print(oresmej.__version__)"
+
+### Çıktı: 
+
+pixi remove oresmej
+
+conda install -c https://prefix.dev/channels/bilgi oresmej
+
+pixi run python -c "import oresmej; print(oresmej.__version__)"
+
+### Çıktı: 
+
+pixi run pip list | grep oresmej
+
+### oresmej  
+
+pixi run pip show oresmej
+
+Name: oresmej
+
+Version: 
+
+Summary: 
+
+Home-page: https://github.com/WhiteSymmetry/oresmej
+
+Author: Mehmet Keçeci
+
+Author-email: Mehmet Keçeci <...>
+
+License: GNU AFFERO GENERAL PUBLIC LICENSE
+
+Copyright (c) 2025-2026 Mehmet Keçeci
+
+----
+
+1. https://pypi.org/project/oresmej/
+2. https://anaconda.org/bilgi/oresmej
+3. https://prefix.dev/channels/bilgi/packages/oresmej
+
+---
