@@ -13,7 +13,7 @@ import math
 import numpy as np
 import os
 import time
-from typing import List, Union, Generator, Tuple, Optional
+from typing import Any, Dict, List, Union, Generator, Tuple, Optional
 import oresme
 import oresmen
 
