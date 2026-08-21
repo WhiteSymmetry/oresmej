@@ -1,7 +1,7 @@
 # pyproject.toml
 
 [build-system]
-requires = ["setuptools>=82.0.1"]
+requires = ["setuptools>=84.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,7 +10,7 @@ version = "0.1.9"
 dynamic = ["keywords", "maintainers"]
 license = "AGPL-3.0-or-later"  # SPDX ID
 authors = [
-  { name="Mehmet Keçeci", email="mkececi@yaani.com" },
+  { name="Mehmet Keçeci", email="enfo@tuta.io" },
 ]
 description = "Oresme numbers refer to the sums related to the harmonic series"
 readme = "README.md"
