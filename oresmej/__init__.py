@@ -33,8 +33,8 @@ except ImportError:
     JAX_AVAILABLE = False
     jnp = None  # JAX desteklenmiyor
 
-__version__ = "0.1.9"
-__author__ = "Mehmet Keçeci <mkececi@yaani.com>"
+__version__ = "0.2.0"
+__author__ = "Mehmet Keçeci <enfo@tuta.io>"
 __license__ = "AGPL-3.0-or-later"
 
 # Dışa aktarılacak semboller listesi
