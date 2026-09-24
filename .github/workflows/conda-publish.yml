@@ -228,26 +228,61 @@ jobs:
             jaxlib \
             -c conda-forge -c bilgi
           
-          # kececinumbers ekle
-          #conda install -n test-env -y kececinumbers -c bilgi
-          
           echo ""
           echo "✅ Tüm paketler kuruldu"
-                
-            # ================================================================
-            # ADIM 9: Paket Import Testi
-            # ================================================================
-            - name: Verify package import
-              run: |
-                echo "🔍 Paket import testi yapılıyor..."
-                
-                conda run -n test-env python -c "
-                import oresmej
-                
-                print('✅ Tüm bağımlılıklar başarıyla yüklendi!')
-                print(f'📦 oresmej version: {oresmej.__version__}')
-                "
-
+      
+      # ================================================================
+      # ADIM 7: Build Edilen Paketi Test Ortamına Kur
+      # ================================================================
+      - name: Install built package in test environment
+        run: |
+          echo "📦 Build edilen paketi test ortamına kuruyoruz..."
+          
+          PACKAGE_FILE=$(find dist -name "*.conda" -type f | head -n1)
+          
+          if [ -z "$PACKAGE_FILE" ]; then
+            echo "❌ HATA: Build edilen paket bulunamadı!"
+            ls -R dist/ || echo "dist/ dizini yok veya boş"
+            exit 1
+          fi
+          
+          echo "✅ Kurulacak paket: $PACKAGE_FILE"
+          
+          conda install -n test-env -y "$PACKAGE_FILE" -c ./dist -c conda-forge -c bilgi
+          
+          echo "✅ Paket kuruldu"
+      
+      # ================================================================
+      # ADIM 8: Paket Import Testi
+      # ================================================================
+      - name: Verify package import
+        run: |
+          echo "🔍 Paket import testi yapılıyor..."
+          
+          conda run -n test-env python -c "
+          import oresmej
+          
+          print('✅ Tüm bağımlılıklar başarıyla yüklendi!')
+          print(f'📦 oresmej version: {oresmej.__version__}')
+          "
+      
+      # ================================================================
+      # ADIM 9: Debug (Başarısızlık Durumu)
+      # ================================================================
+      - name: Debug - Environment info
+        if: failure()
+        run: |
+          echo "=========================================="
+          echo "🔍 Hata Ayıklama Bilgileri"
+          echo "=========================================="
+          conda info
+          echo ""
+          echo "Test ortamı paketleri:"
+          conda list -n test-env || echo "test-env yok"
+          echo ""
+          echo "Ortam detayları:"
+          conda env export -n test-env || echo "test-env export başarısız"
+  
       # ================================================================
       # ADIM 10: Debug (Başarısızlık Durumu)
       # ================================================================
