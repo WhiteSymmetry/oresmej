@@ -216,36 +216,37 @@ jobs:
       # ================================================================
       - name: Create test environment
         run: |
-          echo "🧪 Test ortamı oluşturuluyor (temel paketler)..."
+          echo "🧪 Test ortamı oluşturuluyor (jax dahil)..."
           
-          # Sadece temel bilimsel paketleri kur
           conda create -n test-env -y \
             python=${{ matrix.python-version }} \
             numpy \
             cython \
             pytest \
             pytest-cov \
+            jax \
+            jaxlib \
             -c conda-forge -c bilgi
           
           # kececinumbers ekle
           conda install -n test-env -y kececinumbers -c bilgi
           
           echo ""
-          echo "✅ Temel paketler kuruldu"
-          
-      # ================================================================
-      # ADIM 9: Paket Import Testi
-      # ================================================================
-      - name: Verify package import
-        run: |
-          echo "🔍 Paket import testi yapılıyor..."
-          
-          conda run -n test-env python -c "
-          import oresmej
-          
-          print('✅ Tüm bağımlılıklar başarıyla yüklendi!')
-          print(f'📦 oresmej version: {oresmej.__version__}')
-          "
+          echo "✅ Tüm paketler kuruldu"
+                
+            # ================================================================
+            # ADIM 9: Paket Import Testi
+            # ================================================================
+            - name: Verify package import
+              run: |
+                echo "🔍 Paket import testi yapılıyor..."
+                
+                conda run -n test-env python -c "
+                import oresmej
+                
+                print('✅ Tüm bağımlılıklar başarıyla yüklendi!')
+                print(f'📦 oresmej version: {oresmej.__version__}')
+                "
 
       # ================================================================
       # ADIM 10: Debug (Başarısızlık Durumu)
