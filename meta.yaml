@@ -5,9 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  path: .  # Yerel kaynak kodunun dizinini belirtin
-  url: 
-  blake2b-256: 
+  url: https://files.pythonhosted.org/packages/04/7c/3e8c8fc88cdc1f96d3e9b1abbb434420d83f72266c0f3580f6b7cacec774/oresmej-0.2.0.tar.gz
+  blake2b-256: 047c3e8c8fc88cdc1f96d3e9b1abbb434420d83f72266c0f3580f6b7cacec774
 
 build:
   noarch: python  # Platformdan bağımsız bir paket oluşturur
