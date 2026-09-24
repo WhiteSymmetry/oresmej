@@ -228,6 +228,7 @@ jobs:
             jaxlib \
             oresme \
             oresmen \
+            numba \
             -c conda-forge -c bilgi
           
           echo ""
