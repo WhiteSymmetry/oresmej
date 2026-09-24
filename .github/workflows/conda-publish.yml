@@ -226,6 +226,8 @@ jobs:
             pytest-cov \
             jax \
             jaxlib \
+            oresme \
+            oresmen \
             -c conda-forge -c bilgi
           
           echo ""
