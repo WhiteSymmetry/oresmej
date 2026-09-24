@@ -111,23 +111,26 @@ jobs:
           with open(meta_file, 'r', encoding='utf-8') as f:
               content = f.read()
           
+          # version için (package: altında 2 boşluk girintili)
           content = re.sub(
-              r'(url:\s*)(["\']?)(.*?)\2',
-              f'url: "{pypi_url}"',
+              r'(  version:\s*)(["\']?)(.*?)\2',
+              f'  version: "{pkg_version}"',
               content,
               count=1
           )
           
+          # url için (source: altında 2 boşluk girintili)
           content = re.sub(
-              r'(blake2b-256:\s*)(["\']?)(.*?)\2',
-              f'blake2b-256: "{pypi_hash}"',
+              r'(  url:\s*)(["\']?)(.*?)\2',
+              f'  url: "{pypi_url}"',
               content,
               count=1
           )
           
+          # blake2b-256 için (source: altında 2 boşluk girintili)
           content = re.sub(
-              r'(version:\s*)(["\']?)(.*?)\2',
-              f'version: "{pkg_version}"',
+              r'(  blake2b-256:\s*)(["\']?)(.*?)\2',
+              f'  blake2b-256: "{pypi_hash}"',
               content,
               count=1
           )
