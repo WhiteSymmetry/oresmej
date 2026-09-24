@@ -24,7 +24,9 @@ def get_install_requires():
     base_requires = [
         "numpy",
         "matplotlib",
-        "jax"
+        "jax",
+        "oresme",
+        "oresmen",
     ]
 
 setup(
