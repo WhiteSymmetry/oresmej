@@ -20,6 +20,9 @@ requirements:
     - setuptools
     - wheel
     - setuptools_scm
+    - jax
+    - oresme
+    - oresmen
   run:
     - python
 
