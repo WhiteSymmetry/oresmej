@@ -1,4 +1,7 @@
 name: Lint with Ruff
+permissions:
+  contents: read
+  pull-requests: write
 
 on: [push, pull_request]
 
